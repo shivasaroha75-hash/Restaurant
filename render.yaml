@@ -8,9 +8,11 @@ services:
     buildCommand: npm install
     startCommand: npm start
 
-  # Frontend Service (STATIC)
-  - type: static
+  # Frontend Service (React as Web App)
+  - type: web
     name: restaurant-frontend
+    env: node
+    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
-    staticPublishPath: build
+    startCommand: npx serve -s build
