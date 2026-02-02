@@ -1,0 +1,18 @@
+services:
+  # Backend Service
+  - type: web
+    name: restaurant-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+
+  # Frontend Service
+  - type: web
+    name: restaurant-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
