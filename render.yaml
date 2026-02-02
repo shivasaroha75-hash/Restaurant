@@ -8,11 +8,9 @@ services:
     buildCommand: npm install
     startCommand: npm start
 
-  # Frontend Service
-  - type: web
+  # Frontend Service (STATIC)
+  - type: static
     name: restaurant-frontend
-    env: static
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: build
