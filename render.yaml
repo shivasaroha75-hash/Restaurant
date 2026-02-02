@@ -1,0 +1,18 @@
+services:
+  # Backend Service
+  - type: web
+    name: restaurant-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+
+  # Frontend Service (React as Web App)
+  - type: web
+    name: restaurant-frontend
+    env: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build
