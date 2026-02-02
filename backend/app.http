@@ -1,0 +1,115 @@
+### ===============================
+### RESTAURANTS APIs
+### ===============================
+
+### Get all restaurants
+GET http://localhost:5000/api/restaurants
+
+###
+
+### Create new restaurant
+POST http://localhost:5000/api/restaurants
+Content-Type: application/json
+
+{
+  "name": "Spice Villa",
+  "location": "Noida",
+  "rating": 4.2,
+  "isOpen": true
+}
+
+###
+
+### Update restaurant by ID
+PUT http://localhost:5000/api/restaurants/697ccf85bb7656175fde45cb
+Content-Type: application/json
+
+{
+  "name": "Updated Restaurant Name",
+  "location": "Los Angeles",
+  "cuisine": "Mexican"
+}
+
+###
+
+### Delete restaurant by ID
+DELETE http://localhost:5000/api/restaurants/697ccf85bb7656175fde45cb
+
+
+
+### ===============================
+### MENU APIs
+### ===============================
+
+### Get all menu items
+GET http://localhost:5000/api/menu
+
+###
+
+### Search menu items
+GET http://localhost:5000/api/menu/search?q=paneer
+
+###
+
+### Add menu item (Cold Coffee)
+POST http://localhost:5000/api/menu
+Content-Type: application/json
+
+{
+  "name": "Pizza",
+  "category": "Beverage",
+  "price": 299,
+  "ingredients": ["Cheese", "Tomato Sauce", "Olives"],
+  "isAvailable": true
+}
+
+###
+
+### Toggle menu item availability
+PATCH http://localhost:5000/api/menu/697d9255c1e80b58e75605df/availability
+
+
+
+### ===============================
+### DASHBOARD APIs
+### ===============================
+
+### Get dashboard stats
+GET http://localhost:5000/api/dashboard/stats
+
+
+### Delete menu item by ID
+DELETE http://localhost:5000/api/menu/697e129ca2edfc3c63076f89
+
+###
+POST http://localhost:5000/api/orders
+Content-Type: application/json
+
+{
+  "_id": "...",
+  "orderNumber": "ORD-10",
+  "items": [
+    {
+      "menuItem": "697f576b3482a1cb7ae2510b",
+      "quantity": 2,
+      "price": 299
+    }
+  ],
+  "totalAmount": 598,
+  "status": "Pending"
+}
+
+###
+GET http://localhost:5000/api/orders
+
+
+###
+PATCH http://localhost:5000/api/orders/697e2d9349924fe10fb3995c/status
+Content-Type: application/json
+
+{
+  "status": "Preparing"
+}
+
+###
+DELETE http://localhost:5000/api/orders/697f576b3482a1cb7ae2510b
